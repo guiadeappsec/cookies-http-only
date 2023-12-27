@@ -12,6 +12,8 @@ app.get('/api/set-cookie', (req, res) => {
     httpOnly: true,
     secure: true,
   });
+
+  res.end('cookie set');
 })
 
 app.get('/api/get-cookie', (req, res) => {
