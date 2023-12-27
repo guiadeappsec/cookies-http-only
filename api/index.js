@@ -12,6 +12,8 @@ app.get('/api/set-cookie', (req, res) => {
   res.cookie('session', v4(), {
     httpOnly: true,
     secure: true,
+    maxAge: 1000 * 60 * 60,
+    sameSite: 'none',
   });
 
   res.end('cookie set');
