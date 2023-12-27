@@ -1,8 +1,19 @@
 const app = require('express')();
 const { v4 } = require('uuid');
 
-app.use(require('cors')());
+// app.use(require('cors')());
 app.use(require('cookie-parser')());
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 
 app.get('/api', (req, res) => {
   res.end(`Hello! ${v4()}`);
@@ -26,5 +37,7 @@ app.get('/api/get-cookie', (req, res) => {
 app.post('/api/csrf', (req, res) => {
   res.end(`session cookie: ${req.cookies.session}`);
 });
+
+
 
 module.exports = app;
