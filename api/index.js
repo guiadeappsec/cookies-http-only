@@ -5,12 +5,13 @@ const { v4 } = require('uuid');
 app.use(require('cookie-parser')());
 
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Credentials', true);
+  res.header("Access-Control-Allow-Origin", req.header('Origin'));
+  res.header("Access-Control-Allow-Credentials", true);
   res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
 
