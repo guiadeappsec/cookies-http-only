@@ -1,6 +1,7 @@
 const app = require('express')();
 const { v4 } = require('uuid');
 
+app.use(require('cors')());
 app.use(require('cookie-parser')());
 
 app.get('/api', (req, res) => {
