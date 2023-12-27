@@ -23,4 +23,8 @@ app.get('/api/get-cookie', (req, res) => {
   res.end(`session cookie: ${req.cookies.session}`);
 })
 
+app.post('/api/csrf', (req, res) => {
+  res.end(`session cookie: ${req.cookies.session}`);
+});
+
 module.exports = app;
