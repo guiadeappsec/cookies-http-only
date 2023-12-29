@@ -1,7 +1,6 @@
 const app = require('express')();
 const { v4 } = require('uuid');
 
-// app.use(require('cors')());
 app.use(require('cookie-parser')());
 
 app.use(function(req, res, next) {
@@ -26,6 +25,7 @@ app.get('/api/set-cookie', (req, res) => {
     secure: true,
     maxAge: 1000 * 60 * 60,
     sameSite: 'none',
+    domain: 'cookies-http-only.vercel.app',
   });
 
   res.end('cookie set');
@@ -34,11 +34,5 @@ app.get('/api/set-cookie', (req, res) => {
 app.get('/api/get-cookie', (req, res) => {
   res.end(`session cookie: ${req.cookies.session}`);
 })
-
-app.post('/api/csrf', (req, res) => {
-  res.end(`session cookie: ${req.cookies.session}`);
-});
-
-
 
 module.exports = app;

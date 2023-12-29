@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Guia de AppSec - Cookie Reader",
+    "description": "An extension to read cookies from a site",
+    "version": "1.0",
+    "action": {
+      "default_popup": "extension.html",
+      "default_icon": "extension.png"
+    },
+    "permissions": [
+		"cookies",
+		"tabs",
+		"storage",
+		"sidePanel"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	]
+  }
